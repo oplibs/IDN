@@ -18,13 +18,13 @@ def recursive_listdir(path):
     if not os.path.exists(path):
         print("Target folder does not exist: {}!".format(path))
         return
-    target = "{}_{}X{}".format(path, size[0], size[1])
+    target = "{}_{}x{}".format(path, size[0], size[1])
     if os.path.exists(target):
         shutil.rmtree(target)
         print("clean old data")
     os.mkdir(target)
 
-    graypath = "{}_gray_{}X{}".format(path, size[0], size[1])
+    graypath = "{}_gray_{}x{}".format(path, size[0], size[1])
     if os.path.exists(graypath):
         shutil.rmtree(graypath)
         print("clean old data")
