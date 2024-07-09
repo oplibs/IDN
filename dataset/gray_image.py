@@ -14,18 +14,17 @@ from PIL import Image
 
 size = 115, 220
 
-
 def recursive_listdir(path):
     if not os.path.exists(path):
         print("Target folder does not exist: {}!".format(path))
         return
-    target = "{}_{}{}".format(path, size[0], size[1])
+    target = "{}_{}X{}".format(path, size[0], size[1])
     if os.path.exists(target):
         shutil.rmtree(target)
         print("clean old data")
     os.mkdir(target)
 
-    graypath = target+"_gray"
+    graypath = "{}_gray_{}X{}".format(path, size[0], size[1])
     if os.path.exists(graypath):
         shutil.rmtree(graypath)
         print("clean old data")
@@ -61,3 +60,5 @@ def recursive_listdir(path):
 
 recursive_listdir(
     './CEDAR/signatures/full_forg')
+recursive_listdir(
+    './CEDAR/signatures/full_org')
